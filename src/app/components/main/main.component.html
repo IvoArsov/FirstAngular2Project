@@ -1,0 +1,17 @@
+<div>
+  <label>Select background color</label>
+  <select (change)="selectBackgroundColor($event.target.value)">
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="yellow">Yellow</option>    
+  </select>
+  <label>Select font color</label>
+  <select (change)="selectFontColor($event.target.value)">
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="yellow">Yellow</option>    
+  </select>
+</div>
+<div [style.background-color]="backgroundColor" class="main-wrapper">
+  <p [style.color]="fontColor">{{demo}}<p>
+</div>
