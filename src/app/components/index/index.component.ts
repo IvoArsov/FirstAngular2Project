@@ -1,11 +1,15 @@
 import { Component } from '@angular/core'
-import { Data } from '../../data/Data'
+import data from '../../data/Data'
 
 @Component({
   selector: 'index-page',
-  templateUrl: './index.component.html'
+  templateUrl: './index.component.html',
+  styleUrls: ['./index.component.css']
 })
 export class IndexComponent{  
-  data = new Data();
-  test = 'test'; 
+  data = data;  
+
+  viewDetails(article){
+    
+  }
 }
