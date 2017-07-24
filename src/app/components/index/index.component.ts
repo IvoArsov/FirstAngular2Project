@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, EventEmitter, Output, Input } from '@angular/core'
 import data from '../../data/Data'
 
 @Component({
@@ -7,9 +7,10 @@ import data from '../../data/Data'
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent{  
-  data = data;  
+  data = data;
+  @Output() sendDataToMain = new EventEmitter<string>();   
 
-  viewDetails(article){
-    
+  viewDetails(article){    
+    this.sendDataToMain.emit(article.description);
   }
 }

@@ -1,3 +1,5 @@
+<h1>Parent main</h1>
+<index-page (sendDataToMain)="dataReceived($event)"></index-page>
 <div>
   <label>Select background color</label>
   <select (change)="selectBackgroundColor($event.target.value)">
@@ -14,5 +16,5 @@
   </select>
 </div>
 <div [style.background-color]="backgroundColor" class="main-wrapper">
-  <p [style.color]="fontColor">{{demo}}<p>
+  <p [style.color]="fontColor">{{description}}<p>
 </div>

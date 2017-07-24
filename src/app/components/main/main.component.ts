@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core'
+import { Component, EventEmitter, Input, Output } from '@angular/core'
 
 @Component({
   selector: 'main',
@@ -9,6 +9,7 @@ export class MainComponent {
   demo = 'demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo demo '
   backgroundColor = 'red'
   fontColor = 'white'
+  description: string   
 
   selectBackgroundColor(value){
     this.backgroundColor = value;
@@ -16,5 +17,9 @@ export class MainComponent {
 
   selectFontColor(value){
     this.fontColor = value;
+  }
+
+  dataReceived(description){    
+    this.description = description;
   }
 }
