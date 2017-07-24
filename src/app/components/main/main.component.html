@@ -1,20 +1,31 @@
-<h1>Parent main</h1>
-<index-page (sendDataToMain)="dataReceived($event)"></index-page>
+
+<index-page 
+  (sendDescriptionToMain)="descriptionReceived($event)"
+  (sendPhotoToMain)="photoReceived($event)" 
+></index-page>
 <div>
-  <label>Select background color</label>
-  <select (change)="selectBackgroundColor($event.target.value)">
-    <option value="red">Red</option>
-    <option value="blue">Blue</option>
-    <option value="yellow">Yellow</option>    
+  <label for="background-color-selector">Select background color</label>
+  <select (change)="selectBackgroundColor($event.target.value)" id="background-color-selector">
+    <option value="#b30000">Red</option>
+    <option value="#808080">Grey</option>
+    <option value="#004d00">Dark Green</option>    
   </select>
-  <label>Select font color</label>
-  <select (change)="selectFontColor($event.target.value)">
+  <label for="font-color-selector">Select font color</label>
+  <select (change)="selectFontColor($event.target.value)" id="font-color-selector">
     <option value="white">White</option>
     <option value="red">Red</option>
     <option value="blue">Blue</option>
     <option value="yellow">Yellow</option>    
-  </select>
+    <option value="black">Black</option>    
+  </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <label>Font Size:</label>
+  <button (click)="increaseFont()">+</button>&nbsp;<button (click)="decreaseFont()">-</button>
 </div>
-<div [style.background-color]="backgroundColor" class="main-wrapper">
+<div [style.background-color]="backgroundColor" class="main-wrapper" [style.font-size]="fontSize + 'px'">
+  <img src={{photoUrl}} alt="photo" [hidden]="isShowPhoto"/>
+  <br /> 
+  <button (click)="showHidePhoto()">{{showHidePhotoBtn}}</button>
   <p [style.color]="fontColor">{{description}}<p>
+  <br />
+  <button (click)="showMoreText()" *ngIf="!isDescriptionTotal">Show more</button>  
 </div>
